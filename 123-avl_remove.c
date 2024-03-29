@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-
 /**
  * bal - Measures balance factor of a AVL
  * @tree: tree to go through
@@ -9,7 +8,7 @@ void bal(avl_t **tree)
 {
 	int bval;
 
-	if (tree == NULL || *tree == NULL)
+	if (!tree || *tree == NULL)
 		return;
 	if ((*tree)->left == NULL && (*tree)->right == NULL)
 		return;
@@ -30,14 +29,14 @@ int successor(bst_t *node)
 {
 	int left = 0;
 
-	if (node == NULL)
+	if (!node)
 	{
 		return (0);
 	}
 	else
 	{
 		left = successor(node->left);
-		if (left == 0)
+		if (!left)
 		{
 			return (node->n);
 		}
@@ -101,7 +100,7 @@ bst_t *bst_remove(bst_t *root, int value)
 {
 	int type = 0;
 
-	if (root == NULL)
+	if (!root)
 		return (NULL);
 	if (value < root->n)
 		bst_remove(root->left, value);
@@ -126,10 +125,10 @@ bst_t *bst_remove(bst_t *root, int value)
  */
 avl_t *avl_remove(avl_t *root, int value)
 {
-	avl_t *root_a = (avl_t *) bst_remove((bst_t *) root, value);
+	avl_t *aroot = (avl_t *) bst_remove((bst_t *) root, value);
 
-	if (root_a == NULL)
+	if (!aroot)
 		return (NULL);
-	bal(&root_a);
-	return (root_a);
+	bal(&aroot);
+	return (aroot);
 }
