@@ -1,10 +1,4 @@
 #include "binary_trees.h"
-#include "limits.h"
-
-size_t height(const binary_tree_t *tree);
-int is_avl_helper(const binary_tree_t *tree, int lo, int hi);
-int binary_tree_is_avl(const binary_tree_t *tree);
-
 /**
  * height - Measures the height of a binary tree.
  * @tree: A pointer to the root node of the tree to measure the height.
@@ -36,7 +30,7 @@ int is_avl_helper(const binary_tree_t *tree, int lo, int hi)
 {
 	size_t lhgt, rhgt, diff;
 
-	if (tree != NULL)
+	if (tree)
 	{
 		if (tree->n < lo || tree->n > hi)
 			return (0);
@@ -59,7 +53,7 @@ int is_avl_helper(const binary_tree_t *tree, int lo, int hi)
  */
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
-	if (tree == NULL)
+	if (!tree)
 		return (0);
 	return (is_avl_helper(tree, INT_MIN, INT_MAX));
 }
