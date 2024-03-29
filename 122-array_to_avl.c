@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-
 /**
  * array_to_avl - Builds an AVL tree from an array.
  * @array: A pointer to the first element of the array to be converted.
@@ -12,7 +11,7 @@ avl_t *array_to_avl(int *array, size_t size)
 	avl_t *tree = NULL;
 	size_t i, j;
 
-	if (array == NULL)
+	if (!array)
 		return (NULL);
 
 	for (i = 0; i < size; i++)
@@ -24,10 +23,9 @@ avl_t *array_to_avl(int *array, size_t size)
 		}
 		if (j == i)
 		{
-			if (avl_insert(&tree, array[i]) == NULL)
+			if (!avl_insert(&tree, array[i]))
 				return (NULL);
 		}
 	}
-
 	return (tree);
 }
