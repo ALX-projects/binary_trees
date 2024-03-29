@@ -1,11 +1,4 @@
 #include "binary_trees.h"
-
-size_t height(const binary_tree_t *tree);
-int balance(const binary_tree_t *tree);
-avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
-		avl_t **new, int value);
-avl_t *avl_insert(avl_t **tree, int value);
-
 /**
  * height - Measures the height of a binary tree.
  * @tree: A pointer to the root node of the tree to measure the height.
@@ -14,7 +7,7 @@ avl_t *avl_insert(avl_t **tree, int value);
  */
 size_t height(const binary_tree_t *tree)
 {
-	if (tree != NULL)
+	if (tree)
 	{
 		size_t l = 0, r = 0;
 
@@ -33,7 +26,7 @@ size_t height(const binary_tree_t *tree)
  */
 int balance(const binary_tree_t *tree)
 {
-	return (tree != NULL ? height(tree->left) - height(tree->right) : 0);
+	return (tree ? height(tree->left) - height(tree->right) : 0);
 }
 
 /**
@@ -98,7 +91,7 @@ avl_t *avl_insert(avl_t **tree, int value)
 {
 	avl_t *new = NULL;
 
-	if (tree == NULL)
+	if (!tree)
 		return (NULL);
 	if (*tree == NULL)
 	{
