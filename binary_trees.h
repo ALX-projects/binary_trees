@@ -102,5 +102,4 @@ avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
                 avl_t **new, int value);
 avl_t *avl_insert(avl_t **tree, int value);
 
-...
 #endif
