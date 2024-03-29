@@ -1,6 +1,4 @@
 #include "binary_trees.h"
-#include "limits.h"
-
 /**
  * is_bst_helper - Checks if a binary tree is a valid binary search tree.
  * @tree: A pointer to the root node of the tree to check.
@@ -11,7 +9,7 @@
  */
 int is_bst_helper(const binary_tree_t *tree, int lo, int hi)
 {
-	if (tree != NULL)
+	if (tree)
 	{
 		if (tree->n < lo || tree->n > hi)
 			return (0);
@@ -29,7 +27,7 @@ int is_bst_helper(const binary_tree_t *tree, int lo, int hi)
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
-	if (tree == NULL)
+	if (!tree)
 		return (0);
 	return (is_bst_helper(tree, INT_MIN, INT_MAX));
 }
