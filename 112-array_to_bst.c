@@ -12,7 +12,7 @@ bst_t *array_to_bst(int *array, size_t size)
 	bst_t *tree = NULL;
 	size_t i, j;
 
-	if (array == NULL)
+	if (!array)
 		return (NULL);
 
 	for (i = 0; i < size; i++)
@@ -22,12 +22,11 @@ bst_t *array_to_bst(int *array, size_t size)
 			if (array[j] == array[i])
 				break;
 		}
-		if (j == i)
+		if (i == j)
 		{
 			if (bst_insert(&tree, array[i]) == NULL)
 				return (NULL);
 		}
 	}
-
 	return (tree);
 }
